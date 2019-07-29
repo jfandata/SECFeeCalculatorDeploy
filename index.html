@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SEC Fee Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="jumbotron text-center">
+  <h1>SEC Fee Calculator</h1>
+  </div>
+
+  <div class="container-fluid">
+  <div>
+  <p>How many shares did you sell? <input type="text" id="shares"></p>
+  <p>How much was the price per share? <input type="text" id="prices"></p>
+  
+  <button onclick="secFeeCalc()">Calculate</button>
+
+  <script>
+    function secFeeCalc()
+    {
+      var share = document.getElementById("shares").value;
+      var price = document.getElementById("prices").value;
+      var factor = 0.0000207;
+      
+      var secfee=parseInt(share)*parseFloat(price)*factor;
+      
+	    if(!isNaN(secfee))
+	    {
+	      document.getElementById("secfeevalue").innerHTML="The SEC fee is $"+secfee;
+      }
+    }
+  </script>
+  <br></br>
+  <p id="secfeevalue"></p>
+  </div>
+  <br>Notes:</br> 
+  <p>SEC fee is
+    calculated on the dollar value of the sale of common equity securities. The rate is updated twice a year by the U.S. Securities and Exchange Commission.</p>
+  <p> <a href="https://www.sec.gov/news/press-release/2019-30">Fee Rate Advisory #2 for Fiscal Year 2019</a> </p>
+  <p>Current SEC fee on or after April 16, 2019 is $20.70 per million dollar or factor of 0.0000207.</p>
+  </div>
+
+</body>
+</html>
